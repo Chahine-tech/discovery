@@ -6,13 +6,14 @@ pub fn main() {
 
   // Loop until the user guesses the secret number
   let guess = 50
-  check_guess(secret_number, guess)
+  let result = check_guess(secret_number, guess)
+  io.debug(result)
 }
 
-fn check_guess(secret_number: Int, guess: Int) {
+pub fn check_guess(secret_number: Int, guess: Int) -> String {
   case guess {
-    _ if guess < secret_number -> io.debug("Too low!")
-    _ if guess > secret_number -> io.debug("Too high!")
-    _ -> io.debug("You guessed it!")
+    _ if guess < secret_number -> "Too low!"
+    _ if guess > secret_number -> "Too high!"
+    _ -> "You guessed it!"
   }
 }
